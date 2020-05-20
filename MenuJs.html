@@ -1,15 +1,13 @@
 <script>
 
-    $(() => google.script.run.withSuccessHandler(setSheetSelector).getSheets());
-    
-    function setSheetSelector(sheets) {
+    $(() => google.script.run.withSuccessHandler(sheets => {
         for(let sheet of sheets) {
             $('#sheetSelector').append($('<option></option>').attr('value', sheet).text(sheet)); 
         }
 
         selectedValueChanged();
-    }
-
+    }).getSheets());
+    
     function selectedValueChanged() {
         let sheetName = $('#sheetSelector').val();
         google.script.run.withSuccessHandler(ctaTitles => {
