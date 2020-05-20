@@ -20,9 +20,9 @@
         }
     </style>
 </head>
-  <body class="bg-light">
+  <body>
     <div class="container">
-        <div id="tabs">
+        <div id="sheets">
             <h5>Select Tabs</h5>
             <select class="custom-select d-block w-100" required></select>
         </div>
@@ -32,7 +32,7 @@
             <div id="ctaTitles">
                 <div class="row mb-4">
                     <div class="col-md-12">
-                        <select class="custom-select d-block w-100"></select>
+                        <select id="mySelect" class="custom-select d-block w-100"></select>
                     </div>
                 </div>
                 <div class="row mb-4">
@@ -62,16 +62,13 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">Generate</button>
+                        <button type="button" id="generateBtn" class="btn btn-primary btn-lg btn-block">Generate</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <?!= include('MenuJs'); ?>
   </body>
 </html>

@@ -1,0 +1,13 @@
+<script>
+
+    $(function() {
+        google.script.run.withSuccessHandler(setSheetsDropdown).getSheets();
+    });
+    
+    function setSheetsDropdown(sheets) {
+        for(let sheet of sheets) {
+            $('select', 'div#sheets').append($("<option></option>").attr("value", sheet).text(sheet)); 
+        }
+    }
+
+</script>
