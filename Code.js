@@ -13,7 +13,7 @@ function include(filename) {
 }
 
 function getSheets() {
-    let sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets().map((sheet) => sheet.getName());
+    let sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets().map(sheet => sheet.getName());
 
     return sheets;
 }
@@ -26,11 +26,11 @@ function selectedValueChangedHandler(sheetName) {
 
     for (let row in values) {
         for (let col in values[row]) {
-          let value = values[row][col];
+            let value = values[row][col];
 
-          if(value) {
-            ctaTitles.push(value);
-          }
+            if(value) {
+                ctaTitles.push(value);
+            }
         }
     }
 
