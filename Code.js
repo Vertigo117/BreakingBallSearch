@@ -36,3 +36,8 @@ function selectedValueChangedHandler(sheetName) {
 
     return ctaTitles;
 }
+
+function generateBtn_clickHandler() {
+    let ui = SpreadsheetApp.getUi();
+    ui.alert('Generated Link', 'www.testlink.com', )
+}
