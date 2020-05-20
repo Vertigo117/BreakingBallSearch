@@ -37,7 +37,9 @@ function selectedValueChangedHandler(sheetName) {
     return ctaTitles;
 }
 
-function generateBtn_clickHandler() {
-    let html = HtmlService.createHtmlOutputFromFile('ModalDialog').setWidth(600).setHeight(100);
+function generateBtn_clickHandler(ctaTitles) {
+    let template = HtmlService.createTemplateFromFile('ModalDialog');
+    template.textAreaValue = 'www.exampleLink.com';
+    let html = template.evaluate().setWidth(600).setHeight(100);
     SpreadsheetApp.getUi().showModalDialog(html, 'Generated Link');
 }

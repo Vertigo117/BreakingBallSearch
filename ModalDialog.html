@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base target="_top">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="content">
-        <p>Example text</p>
-    </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <?!= include('MenuJs'); ?>
-  </body>
+    <head>
+        <base target="_top">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/fa0976a0f1.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="content">
+            <div class="input-group">
+                <textarea id="linkTextArea" class="form-control" readonly aria-label="With textarea"><?= textAreaValue ?></textarea>
+                <div class="input-group-append">
+                    <button id="copyBtn" class="btn btn-outline-secondary" title="Copy" type="button">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <?!= include('ModalDialogJs'); ?>
+    </body>
 </html>

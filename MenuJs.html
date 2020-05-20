@@ -21,7 +21,8 @@
     }
 
     function generateBtn_click() {
-        google.script.run.generateBtn_clickHandler();
+        let ctaTitles = $('select', 'div#ctaTitles').val();
+        google.script.run.generateBtn_clickHandler(ctaTitles);
     }
 
 </script>
