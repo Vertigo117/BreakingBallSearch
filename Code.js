@@ -19,3 +19,18 @@ function getSheets() {
 
     return sheets;
 }
+
+function selectedValueChangedHandler(sheetName) {
+    let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+    let range = sheet.getRange(4, 1, 9);
+    let values = range.getValues();
+    let ctaTitles = new Array();
+
+    for (let row in values) {
+        for (let col in values[row]) {
+          ctaTitles.push(values[row][col]);
+        }
+    }
+
+    return ctaTitles;
+}
