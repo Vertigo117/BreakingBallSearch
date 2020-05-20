@@ -38,6 +38,6 @@ function selectedValueChangedHandler(sheetName) {
 }
 
 function generateBtn_clickHandler() {
-    let ui = SpreadsheetApp.getUi();
-    ui.alert('Generated Link', 'www.testlink.com', )
+    let html = HtmlService.createHtmlOutputFromFile('ModalDialog').setWidth(600).setHeight(100);
+    SpreadsheetApp.getUi().showModalDialog(html, 'Generated Link');
 }
