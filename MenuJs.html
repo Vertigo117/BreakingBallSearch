@@ -23,7 +23,10 @@
     function generateBtn_click() {
         let ctaTitles = $('select', 'div#ctaTitles').get().map(dropDown => dropDown.value);
         let sheetName = $('#sheetSelector').val();
-        google.script.run.generateBtn_clickHandler(ctaTitles, sheetName);
+
+        if(ctaTitles.length > 0) {
+            google.script.run.generateBtn_clickHandler(ctaTitles, sheetName);
+        }
     }
 
 </script>

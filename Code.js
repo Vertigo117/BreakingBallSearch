@@ -54,7 +54,31 @@ function generateLink(ctaTitles, sheetName) {
     let promotedArticle = sheet.getRange(1, 2).getValues()[0][0];
     let campaignLink = sheet.getRange(2, 2).getValues()[0][0];
 
-    let link = `${promotedArticle}?cta_titles=${ctaTitles.join(';')}&cta_link=${campaignLink}&cta_fb_pixel=pixel_example`;
+    let link = `${promotedArticle}?cta_titles=${ctaTitles.join(';')}&cta_link=${encodeURIComponent(campaignLink)}&cta_fb_pixel=${getPixel(promotedArticle)}`;
 
-    return link;
+    return encodeURI(link);
+}
+
+function getPixel(promotedArticle) {
+    let config = {
+        'breakinball.com': {
+            fb_pixel: 2596599323917918
+    
+        },
+        'journeyranger.com': {
+            fb_pixel: 524362515004329
+        },
+        'teddyfeed.com': {
+            fb_pixel: 162403107723161
+        }
+    };
+
+    for(property in config) {
+        if(promotedArticle.indexOf(property) > -1) {
+            return config[property].fb_pixel;
+        }
+    }
+
+    return null;
+
 }
