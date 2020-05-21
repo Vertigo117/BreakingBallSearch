@@ -9,6 +9,8 @@
     }).getSheets());
     
     function selectedValueChanged() {
+        $('#generateBtn').attr('disabled', true);
+
         let sheetName = $('#sheetSelector').val();
         google.script.run.withSuccessHandler(ctaTitles => {
             let dropDowns = $('select', 'div#ctaTitles');
@@ -17,6 +19,8 @@
             for(let title of ctaTitles) {
                 dropDowns.append($('<option></option>').attr('value', title).text(title));
             }
+
+            $('#generateBtn').removeAttr('disabled');
         }).selectedValueChangedHandler(sheetName);
     }
 
