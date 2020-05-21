@@ -21,8 +21,9 @@
     }
 
     function generateBtn_click() {
-        let ctaTitles = $('select', 'div#ctaTitles').val();
-        google.script.run.generateBtn_clickHandler(ctaTitles);
+        let ctaTitles = $('select', 'div#ctaTitles').get().map(dropDown => dropDown.value);
+        let sheetName = $('#sheetSelector').val();
+        google.script.run.generateBtn_clickHandler(ctaTitles, sheetName);
     }
 
 </script>

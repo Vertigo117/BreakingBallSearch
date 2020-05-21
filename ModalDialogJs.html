@@ -1,5 +1,8 @@
 <script>
 
-    $(() => google.script.run.withSuccessHandler().)
+    function copyToClipboard() {
+        $('#linkTextArea').select();
+        document.execCommand('copy');
+    }
 
 </script>

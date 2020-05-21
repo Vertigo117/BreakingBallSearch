@@ -8,9 +8,9 @@
     <body>
         <div class="content">
             <div class="input-group">
-                <textarea id="linkTextArea" class="form-control" readonly aria-label="With textarea"><?= textAreaValue ?></textarea>
+                <textarea id="linkTextArea" rows="4" class="form-control" readonly aria-label="With textarea"><?= textAreaValue ?></textarea>
                 <div class="input-group-append">
-                    <button id="copyBtn" class="btn btn-outline-secondary" title="Copy" type="button">
+                    <button id="copyBtn" onclick="copyToClipboard()" class="btn btn-outline-secondary" title="Copy" type="button">
                         <i class="far fa-copy"></i>
                     </button>
                 </div>

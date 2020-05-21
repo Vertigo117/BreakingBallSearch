@@ -37,9 +37,24 @@ function selectedValueChangedHandler(sheetName) {
     return ctaTitles;
 }
 
-function generateBtn_clickHandler(ctaTitles) {
+function generateBtn_clickHandler(ctaTitles, sheetName) {
+    let link = generateLink(ctaTitles, sheetName);
+    displayLink(link);
+}
+
+function displayLink(link) {
     let template = HtmlService.createTemplateFromFile('ModalDialog');
-    template.textAreaValue = 'www.exampleLink.com';
-    let html = template.evaluate().setWidth(600).setHeight(100);
+    template.textAreaValue = link;
+    let html = template.evaluate().setWidth(600).setHeight(200);
     SpreadsheetApp.getUi().showModalDialog(html, 'Generated Link');
+}
+
+function generateLink(ctaTitles, sheetName) {
+    let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+    let promotedArticle = sheet.getRange(1, 2).getValues()[0][0];
+    let campaignLink = sheet.getRange(2, 2).getValues()[0][0];
+
+    let link = `${promotedArticle}?cta_titles=${ctaTitles.join(';')}&cta_link=${campaignLink}&cta_fb_pixel=pixel_example`;
+
+    return link;
 }
